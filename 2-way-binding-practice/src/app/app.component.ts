@@ -10,10 +10,10 @@ export class AppComponent {
   isEmpty: boolean = this.username === '';
 
   updateUserName(event: Event) {
-    this.username = (<HTMLInputElement>event.target).value
+    this.username = (<HTMLInputElement>event.target).value;
   }
 
   resetUserName() {
-    this.username = ''
+    this.username = '';
   }
 }
