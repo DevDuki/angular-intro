@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { RecipesComponent } from './components/recipe/recipes.component';
 import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 import { ShoppingListEditComponent } from './components/shopping-list/shopping-list-edit/shopping-list-edit.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ShoppingListEditComponent } from './components/shopping-list/shopping-l
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
