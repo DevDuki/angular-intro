@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  recipePageIsSelected: boolean = true;
+
+  onSelectedNav(selection: string): void {
+    this.recipePageIsSelected = selection === 'recipe';
+  }
 }

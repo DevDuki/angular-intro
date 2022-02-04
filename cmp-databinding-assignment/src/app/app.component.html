@@ -17,3 +17,16 @@
 </div>
 <hr>
 
+<div class="container">
+  <app-game-control (gameStarted)="onGameStarted($event)"></app-game-control>
+  <div class="row">
+    <div class="col-6">
+      <app-odd *ngFor="let odd of oddNumbers" [oddNumber]="odd"></app-odd>
+    </div>
+    <div class="col-6">
+      <app-even *ngFor="let even of evenNumbers">
+        <p>Even - {{even}}</p>
+      </app-even>
+    </div>
+  </div>
+</div>
