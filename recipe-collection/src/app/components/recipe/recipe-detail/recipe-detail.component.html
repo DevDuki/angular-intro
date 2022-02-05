@@ -14,10 +14,10 @@
   <div class="col-12">
     <div class="btn-group">
 
-      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownControls" data-bs-toggle="dropdown" aria-expanded="false">
+      <button (click)="toggleDropdown()" class="btn btn-primary dropdown-toggle" type="button" id="dropdownControls" data-bs-toggle="dropdown" aria-expanded="false">
         Manage Recipe
       </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownControls">
+      <ul [appDropdown]="isDropdownOpen" class="dropdown-menu" aria-labelledby="dropdownControls">
         <li><a class="dropdown-item" href="#">Add Ingredients</a></li>
         <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
         <li><a class="dropdown-item" href="#">Delete Recipe</a></li>

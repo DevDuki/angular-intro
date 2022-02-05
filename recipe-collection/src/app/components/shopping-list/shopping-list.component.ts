@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Ingridient } from "../../shared/ingridient.model";
+import { Ingridient } from "../../shared/models/ingridient.model";
 
 @Component({
   selector: 'app-shopping-list',

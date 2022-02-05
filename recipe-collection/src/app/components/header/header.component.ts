@@ -7,6 +7,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output() onSelect: EventEmitter<string> = new EventEmitter<string>();
+  isDropdownOpen: boolean = false;
 
   constructor() { }
 
