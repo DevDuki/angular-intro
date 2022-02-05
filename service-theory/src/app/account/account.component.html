@@ -1,0 +1,11 @@
+<div *ngFor="let acc of accounts; let i = index" class="row">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <h5>{{ acc.name }}</h5>
+    <hr>
+    <p>This account is {{ acc.status }}</p>
+    <button class="btn btn-secondary" (click)="onSetTo('active', i)">Set to 'active'</button>
+    <button class="ms-2 btn btn-secondary" (click)="onSetTo('inactive', i)">Set to 'inactive'</button>
+    <button class="ms-2 btn btn-secondary" (click)="onSetTo('unknown', i)">Set to 'unknown'</button>
+  </div>
+</div>
+
