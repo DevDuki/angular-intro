@@ -14,13 +14,13 @@
   <div class="col-12">
     <div class="btn-group">
 
-      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownControls" data-bs-toggle="dropdown" aria-expanded="false">
+      <button (click)="toggleDropdown()" class="btn btn-primary dropdown-toggle" type="button" id="dropdownControls" data-bs-toggle="dropdown" aria-expanded="false">
         Manage Recipe
       </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownControls">
-        <li><a class="dropdown-item" href="#">Add Ingredients</a></li>
-        <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
-        <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+      <ul [appDropdown]="isDropdownOpen" class="dropdown-menu" aria-labelledby="dropdownControls">
+        <li><a (click)="addIngridientsToShoppingList()" class="dropdown-item">To Shopping List</a></li>
+        <li><a [routerLink]="['edit']" class="dropdown-item">Edit Recipe</a></li>
+        <li><a class="dropdown-item">Delete Recipe</a></li>
       </ul>
 
     </div>
@@ -35,6 +35,8 @@
 
 <div class="row">
   <div class="col-12">
-    Ingridients
+    <ul class="list-group">
+      <li *ngFor="let ingridient of recipe.ingridients" class="list-group-item">{{ ingridient.name }} ({{ ingridient.amount }})</li>
+    </ul>
   </div>
 </div>

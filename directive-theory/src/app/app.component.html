@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <div *ngIf="onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor="let odd of odds">
+            {{ odd }}
+          </li>
+        </div>
+        <div *appUnless="onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{ evenClass: even % 2 === 0 }"
+            [ngStyle]="{ backgroundColor: 'green' }"
+            *ngFor="let even of evens">
+            {{ even }}
+          </li>
+        </div>
+      </ul>
+
+      <p
+        class="mt-5"
+        [appHighlight]="'red'"
+        [defaultColor]="'yellow'">
+        Style me with directive!
+      </p>
+
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="100">Value is 100</p>
+        <p *ngSwitchDefault>Value is default</p>
+      </div>
+
+    </div>
+  </div>
+</div>

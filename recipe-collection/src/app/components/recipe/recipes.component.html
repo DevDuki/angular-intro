@@ -1,11 +1,12 @@
 <div class="row">
   <div class="col-md-5">
-    <app-recipe-list (onOpenRecipeDetails)="recipeToShowDetails = $event"></app-recipe-list>
+    <app-recipe-list></app-recipe-list>
   </div>
   <div class="col-md-7">
-    <app-recipe-detail *ngIf="recipeToShowDetails; else infoText" [recipe]="recipeToShowDetails"></app-recipe-detail>
-    <ng-template #infoText>
-      <p>Click on a recipe to see details</p>
-    </ng-template>
+    <router-outlet></router-outlet>
+<!--    <app-recipe-detail *ngIf="recipeToShowDetails; else infoText"></app-recipe-detail>-->
+<!--    <ng-template #infoText>-->
+<!--      <p>Click on a recipe to see details</p>-->
+<!--    </ng-template>-->
   </div>
 </div>
