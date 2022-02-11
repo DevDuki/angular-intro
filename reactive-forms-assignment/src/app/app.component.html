@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!--
+          Create a Form with the following Controls and Validators
+          1) Project Name (should not be empty)
+          2) Mail (should not be a empty and a valid email)
+          3) Project Status Dropdown, with three values: 'Stable', 'Critical', 'Finished'
+          4) Submit Button
+
+          Add your own Validator which doesn't allow "Test" as a Project Name
+
+          Also implement that Validator as an async Validator (replace the other one)
+
+          Upon submitting the form, simply print the value to the console
+      -->
+      <form [formGroup]="formElement" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+          <label for="project-name" class="form-label">Project Name</label>
+          <input [formControlName]="'project-name'" type="text" class="form-control" id="project-name">
+          <div *ngIf="formElement.get('project-name')?.invalid && formElement.get('project-name')?.touched">
+            <p *ngIf="formElement.get('project-name')?.errors?.['required']">Please enter a project name here</p>
+            <p *ngIf="formElement.get('project-name')?.errors?.['invalidProjectName']">Invalid project name. Please choose a different one</p>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input [formControlName]="'email'" type="email" class="form-control" id="email">
+        </div>
+
+        <div class="mb-3">
+          <label for="project-stats"></label>
+          <select [formControlName]="'project-status'" class="form-select" id="project-stats">
+            <option *ngFor="let status of statuses; let i = index" [value]="status">{{ status }}</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+      </form>
+    </div>
+  </div>
+</div>
