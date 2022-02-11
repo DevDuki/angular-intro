@@ -18,9 +18,9 @@
         Manage Recipe
       </button>
       <ul [appDropdown]="isDropdownOpen" class="dropdown-menu" aria-labelledby="dropdownControls">
-        <li><a (click)="addIngridientsToShoppingList()" class="dropdown-item" href="#">To Shopping List</a></li>
-        <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
-        <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+        <li><a (click)="addIngridientsToShoppingList()" class="dropdown-item">To Shopping List</a></li>
+        <li><a [routerLink]="['edit']" class="dropdown-item">Edit Recipe</a></li>
+        <li><a class="dropdown-item">Delete Recipe</a></li>
       </ul>
 
     </div>
