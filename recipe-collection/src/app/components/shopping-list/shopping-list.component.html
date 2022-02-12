@@ -4,9 +4,10 @@
     <hr>
     <ul class="list-group">
       <a
-        *ngFor="let ingridient of ingridients"
+        *ngFor="let ingridient of ingridients; let i = index"
         class="list-group-item"
         style="cursor: pointer;"
+        (click)="onEditItem(i)"
       >{{ ingridient.name }} ({{ ingridient.amount }})</a>
     </ul>
   </div>

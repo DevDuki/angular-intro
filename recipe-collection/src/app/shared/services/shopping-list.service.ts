@@ -8,6 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class ShoppingListService {
   ingridientsChanged: Subject<Ingridient[]> = new Subject<Ingridient[]>();
+  startedEditing: Subject<number> = new Subject<number>();
 
   private ingridients: Ingridient[] = [
     new Ingridient('Apples', 5),
@@ -20,13 +21,27 @@ export class ShoppingListService {
     return this.ingridients.slice();
   }
 
+  getIngridient(index: number): Ingridient {
+    return this.ingridients[index];
+  }
+
   addIngridient(ingridient: Ingridient): void {
     this.ingridients.push(ingridient);
-    this.ingridientsChanged.next(this.ingridients.slice())
+    this.ingridientsChanged.next(this.ingridients.slice());
   }
 
   addIngridients(ingridients: Ingridient[]): void {
     this.ingridients.push(...ingridients);
-    this.ingridientsChanged.next(this.ingridients.slice())
+    this.ingridientsChanged.next(this.ingridients.slice());
+  }
+
+  updateIngridient(index: number, newIngridient: Ingridient): void {
+    this.ingridients[index] = newIngridient;
+    this.ingridientsChanged.next(this.ingridients.slice());
+  }
+
+  deleteIngridient(index: number) {
+    this.ingridients = this.ingridients.filter((_, i: number) => i !== index)
+    this.ingridientsChanged.next(this.ingridients.slice());
   }
 }

@@ -1,1 +1,116 @@
-<p>edit-recipe works!</p>
+<div class="row">
+  <div class="col">
+
+    <form [formGroup]="recipeForm" (ngSubmit)="addRecipe()">
+
+      <div class="row">
+        <div class="col">
+          <button
+            [disabled]="recipeForm.invalid"
+            type="submit"
+            class="btn btn-success me-1"
+          >Save</button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            [routerLink]="['../']"
+          >Cancel</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              [formControlName]="'name'"
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input
+              type="text"
+              id="imagePath"
+              class="form-control"
+              [formControlName]="'imagePath'"
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="imagePreview">Image Preview</label><br>
+          <img id="imagePreview" [src]="recipeForm.get('imagePath')?.value" alt="" class="img-fluid">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              class="form-control"
+              name="description"
+              id="description"
+              rows="6"
+              [formControlName]="'description'"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" [formArrayName]="'ingridients'">
+
+          <div
+            class="row mt-3"
+            *ngFor="let control of getIngridientControls(); let i = index"
+            [formGroupName]="i"
+          >
+
+            <div class="col-8">
+              <input
+                type="text"
+                class="form-control"
+                [formControlName]="'name'"
+              >
+            </div>
+
+            <div class="col-2">
+              <input
+                type="number"
+                class="form-control"
+                [formControlName]="'amount'"
+              >
+            </div>
+
+            <div class="col-2">
+              <button (click)="onDeleteIngridient(i)" class="btn btn-danger" type="button">X</button>
+            </div>
+
+          </div>
+
+          <hr>
+
+          <div class="row">
+            <div class="col">
+              <button (click)="onAddIngridient()" type="button" class="btn btn-success">Add Ingridient</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</div>

@@ -38,4 +38,9 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.routeSubscription.unsubscribe();
   }
+
+  deleteRecipe() {
+    // @ts-ignore
+    this.recipeService.deleteRecipe(this.recipe.id)
+  }
 }
