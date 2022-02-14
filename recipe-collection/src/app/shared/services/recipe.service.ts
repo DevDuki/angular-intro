@@ -10,27 +10,33 @@ import { Subject } from 'rxjs';
 export class RecipeService {
   recipesUpdated: Subject<Recipe[]> = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'Test Recipe',
-      'Test desc',
-      'http://pngimg.com/uploads/spaghetti/spaghetti_PNG17.png',
-      [new Ingridient('Apple', 2), new Ingridient('Spaghetti', 100)],
-      0,
-    ),
-    new Recipe(
-      'Test Recipe2',
-      'Test desc2',
-      'http://pngimg.com/uploads/spaghetti/spaghetti_PNG17.png',
-      [new Ingridient('Apple', 90), new Ingridient('Spaghetti', 112)],
-      1,
-    )
-  ]
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'Test Recipe',
+  //     'Test desc',
+  //     'http://pngimg.com/uploads/spaghetti/spaghetti_PNG17.png',
+  //     [new Ingridient('Apple', 2), new Ingridient('Spaghetti', 100)],
+  //     0,
+  //   ),
+  //   new Recipe(
+  //     'Test Recipe2',
+  //     'Test desc2',
+  //     'http://pngimg.com/uploads/spaghetti/spaghetti_PNG17.png',
+  //     [new Ingridient('Apple', 90), new Ingridient('Spaghetti', 112)],
+  //     1,
+  //   )
+  // ]
+  private recipes: Recipe[] = [];
 
   constructor() { }
 
   getNextId(): number {
-    return this.recipes.length
+    return this.recipes.length;
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesUpdated.next(this.recipes.slice());
   }
 
   getRecipes(): Recipe[] {

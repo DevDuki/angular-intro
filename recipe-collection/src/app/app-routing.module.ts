@@ -5,6 +5,7 @@ import { ShoppingListComponent } from './components/shopping-list/shopping-list.
 import { RecipeDetailComponent } from './components/recipe/recipe-detail/recipe-detail.component';
 import { NoRecipeChosenComponent } from './components/recipe/no-recipe-chosen/no-recipe-chosen.component';
 import { EditRecipeComponent } from './components/recipe/edit-recipe/edit-recipe.component';
+import { RecipesResolver } from "./shared/resolvers/recipes.resolver";
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
@@ -14,8 +15,8 @@ const routes: Routes = [
     children: [
       { path: '', component: NoRecipeChosenComponent },
       { path: 'add', component: EditRecipeComponent },
-      { path: ':id', component: RecipeDetailComponent },
-      { path: ':id/edit', component: EditRecipeComponent },
+      { path: ':id', component: RecipeDetailComponent, resolve: [RecipesResolver] },
+      { path: ':id/edit', component: EditRecipeComponent, resolve: [RecipesResolver] },
     ]
   },
   { path: 'shopping-list', component: ShoppingListComponent }
