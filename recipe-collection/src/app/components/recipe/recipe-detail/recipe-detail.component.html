@@ -17,7 +17,8 @@
       <button (click)="toggleDropdown()" class="btn btn-primary dropdown-toggle" type="button" id="dropdownControls" data-bs-toggle="dropdown" aria-expanded="false">
         Manage Recipe
       </button>
-      <ul [appDropdown]="isDropdownOpen" class="dropdown-menu" aria-labelledby="dropdownControls">
+<!--      <ul [appDropdown]="isDropdownOpen" class="dropdown-menu" aria-labelledby="dropdownControls">-->
+      <ul class="dropdown-menu" aria-labelledby="dropdownControls">
         <li><a (click)="addIngridientsToShoppingList()" class="dropdown-item">To Shopping List</a></li>
         <li><a [routerLink]="['edit']" class="dropdown-item">Edit Recipe</a></li>
         <li><a (click)="deleteRecipe()" [routerLink]="['../']" class="dropdown-item">Delete Recipe</a></li>
